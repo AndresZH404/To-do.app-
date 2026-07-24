@@ -36,13 +36,28 @@ function agregarTareas(event){
         nuevaTarea.remove();
     })
 
+    // Crear checkbox
+    const checkbox = document.createElement("input");
+    checkbox.type = "checkbox";
+
+    // Funcion marcar
+    checkbox.addEventListener("click",()=>{
+    if (checkbox.checked){ 
+        parrafo.style.textDecoration = "line-through" // si esta marcado hace esto
+    } else{ 
+        parrafo.style.textDecoration = "none" // si no esta marcado hace esto
+    }
+    })
+
     // Agregar elementos al articulo
+    // marcar tarea
+    nuevaTarea.appendChild(checkbox);
     // parrafo
     nuevaTarea.appendChild(parrafo);
-    //eliminar tarea
-    nuevaTarea.appendChild(botonEliminar);
     //editar tarea
     nuevaTarea.appendChild(botonEditar);
+    //eliminar tarea
+    nuevaTarea.appendChild(botonEliminar);
 
     // articulo
     listaTareas.appendChild(nuevaTarea);
@@ -54,13 +69,8 @@ function agregarTareas(event){
 buttonAgregar.addEventListener("click", agregarTareas);
 
 // Parte 1 ✅
-// 1. Crear boton Eliminar
-// 1. Crear funcion eliminar
-// 3. al hacer click en "eliminar" borra el elemento deseado
-
-// Parte 2 ✅
-// 1. Crear boton Editar
-// 1. Crear funcion Ediat
-// 3. al hacer click en "Editar" modifica el elemento deseado
-
-// prueba de git
+// 1.Crear el checkbox
+// 2.Que modifique la apariencia del parrafo si esta marcado
+// 3.Si no esta marcano no modifica nada
+// 4.que interactue con el parrafo
+// 5. que funcione
