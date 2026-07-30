@@ -12,6 +12,7 @@ function agregarTareas(event){
 
     // nuevo elemento
     const nuevaTarea = document.createElement("article");
+    nuevaTarea.classList.add("tarea")
 
     // Crear el parrafo
     const parrafo = document.createElement("p");
@@ -68,9 +69,9 @@ function agregarTareas(event){
 
 buttonAgregar.addEventListener("click", agregarTareas);
 
-// Parte 1 ✅
-// 1.Crear el checkbox
-// 2.Que modifique la apariencia del parrafo si esta marcado
-// 3.Si no esta marcano no modifica nada
-// 4.que interactue con el parrafo
-// 5. que funcione
+// creacion del nuevo contenedor para acciones (rediseño de article)
+// debe tener:
+// 1. fecha
+// 2. prioridad: baja, medio, alta
+// 3. boton editar
+// 4.boton eliminar
