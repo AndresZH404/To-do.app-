@@ -1,5 +1,7 @@
 const inputTarea = document.querySelector(".input-tarea")
 
+const inputDescripcion = document.querySelector(".input-descripcion")
+
 const buttonAgregar = document.querySelector(".button-agregar")
 
 const listaTareas = document.querySelector(".lista-tareas")
@@ -17,6 +19,17 @@ function agregarTareas(event){
     // Crear el parrafo
     const parrafo = document.createElement("p");
     parrafo.textContent = inputTarea.value;
+
+    // Crear descripcion
+    const descripcion = document.createElement("p");
+    if(inputDescripcion.value === ""){
+        descripcion.textContent = "Sin Descripción";
+    }else{
+        descripcion.textContent = inputDescripcion.value;
+    }
+    descripcion.style.color = "red";
+    descripcion.style.fontSize = "30px";
+
 
     // Boton Eliminar
     const botonEliminar = document.createElement("button");
@@ -50,21 +63,37 @@ function agregarTareas(event){
     }
     })
 
-    // Agregar elementos al articulo
-    // marcar tarea
-    nuevaTarea.appendChild(checkbox);
-    // parrafo
-    nuevaTarea.appendChild(parrafo);
-    //editar tarea
-    nuevaTarea.appendChild(botonEditar);
-    //eliminar tarea
-    nuevaTarea.appendChild(botonEliminar);
+    //acciones
+    const acciones = document.createElement("div");
+    acciones.classList.add("acciones");
+
+    const fecha = document.createElement("p")
+    fecha.textContent = "Fecha: "
+
+    const prioridad = document.createElement("p")
+    prioridad.textContent = "Prioridad: "
+
 
     // articulo
+    nuevaTarea.appendChild(checkbox);
+    nuevaTarea.appendChild(parrafo);
+    nuevaTarea.appendChild(descripcion);
+    nuevaTarea.appendChild(acciones);
+
+    // acciones
+    acciones.appendChild(fecha);
+    acciones.appendChild(prioridad);
+    acciones.appendChild(botonEditar);
+    acciones.appendChild(botonEliminar);
+
+    // lista
     listaTareas.appendChild(nuevaTarea);
 
-
+    // limpia el formulario para la siguiente tarea (no tocar)
     inputTarea.value = "";
+    inputDescripcion.value = "";
+
+
 }
 
 buttonAgregar.addEventListener("click", agregarTareas);
@@ -74,4 +103,7 @@ buttonAgregar.addEventListener("click", agregarTareas);
 // 1. fecha
 // 2. prioridad: baja, medio, alta
 // 3. boton editar
-// 4.boton eliminar
+// 4. boton eliminar
+// 5. descripcion
+
+console.log(inputDescripcion.value);
