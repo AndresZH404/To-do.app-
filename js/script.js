@@ -27,8 +27,8 @@ function agregarTareas(event){
     }else{
         descripcion.textContent = inputDescripcion.value;
     }
-    descripcion.style.color = "red";
-    descripcion.style.fontSize = "30px";
+    descripcion.style.color = "red";      /// ------------------------ COLORES AQUI !!!!!----------------
+    descripcion.style.fontSize = "20px";
 
 
     // Boton Eliminar
@@ -63,6 +63,10 @@ function agregarTareas(event){
     }
     })
 
+    // contenido (div para parrafo y decripcion)
+    const contenido = document.createElement("div");
+    contenido.classList.add("contenido");
+
     //acciones
     const acciones = document.createElement("div");
     acciones.classList.add("acciones");
@@ -73,11 +77,13 @@ function agregarTareas(event){
     const prioridad = document.createElement("p")
     prioridad.textContent = "Prioridad: "
 
+    // contenido
+    contenido.appendChild(parrafo);
+    contenido.appendChild(descripcion);
 
     // articulo
     nuevaTarea.appendChild(checkbox);
-    nuevaTarea.appendChild(parrafo);
-    nuevaTarea.appendChild(descripcion);
+    nuevaTarea.appendChild(contenido);
     nuevaTarea.appendChild(acciones);
 
     // acciones

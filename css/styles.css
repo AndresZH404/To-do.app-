@@ -44,7 +44,7 @@ header{
 }
 
 .tarea{
-    outline: 2px solid red;
+    outline: 2px solid red; /* trabajando */
 
     background-color:#1f2937 ;
     border-radius: 10px;
@@ -52,6 +52,8 @@ header{
     margin-bottom: 20px;
 
     display: flex;
+    align-items: center;
+    justify-content: space-between;
 }
 
 .tarea p{
@@ -73,4 +75,9 @@ header{
 
 .acciones{
     display: flex;
+}
+
+.contenido{
+    display: flex;
+    flex-direction: column;
 }
