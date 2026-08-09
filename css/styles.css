@@ -1,37 +1,90 @@
 body{
     margin: 0;
-    background-color: #111827;
+    background-color: #111827; 
     font-family: Arial, Helvetica, sans-serif;
 }
 
 header{
-    text-align: center;
-    color: white;
-    margin-top: 30px;
+    width: 70%;
+    margin: 30px auto 0;
 
+    text-align: left;
+    color: white;
 }
+
+
 
 .formulario{
     width: 70%;
-    margin: auto;
-    margin-top: 40xp;
+    margin: 10px auto 0;
+
+    background: #1f2937;
+    border: 1px solid #374151;
+    border-radius: 6px;
+
+    padding: 12px;
 
     display: flex;
-    gap: 10px;
+    flex-direction: column;
+    gap: 8px; 
+
 }
 
 .input-tarea{
+    width: 100%;
+    box-sizing: border-box;
 
-    flex: 1;
-    padding: 18px;
-    border-radius: 10px ;
-    border: none;
+    padding: 10px;
+
+    background-color:#1f2937;
+    color: white;
+    font-size: 17px;
+
+    border: 1px solid #374151;
+    border-radius: 6px;
+
+    outline: none;
+}
+
+.input-tarea::placeholder{
+    color: #cfcfcf;
+}
+
+.input-descripcion{
+    width: 100%;
+    box-sizing: border-box;
+    
+    min-height: 60px;
+    resize: none;
+
+    padding: 10px;
+
+    background-color:#1f2937;
+    color: white;
+    font-size: 15px;
+
+    border: 1px solid #374151;
+    border-radius: 6px;
+
+    outline: none;
+}
+
+.input-descripcion::placeholder{
+    color: #cfcfcf;
+    
 }
 
 .button-agregar{
-    padding: 18px 30px;
+    align-self: flex-end;
+
+    padding: 10px 18px;
+
+    background-color: #6366f1;
+    color: white;
+
     border: none;
-    border-radius: 10px;
+    border-radius: 6px;
+
     cursor: pointer;
 }
 
@@ -44,40 +97,90 @@ header{
 }
 
 .tarea{
-    outline: 2px solid red; /* trabajando */
+    background: #1f2937;
+    border: 1px solid #374151;
 
-    background-color:#1f2937 ;
-    border-radius: 10px;
-    padding: 10px;
-    margin-bottom: 20px;
+    border-radius: 6px;
+
+    padding: 18px;
+
+    margin-bottom: 15px;
 
     display: flex;
     align-items: center;
-    justify-content: space-between;
+    gap: 18px;
+
+    /*posiblemente una transicion 2s*/
+}
+
+.tarea input[type= "checkbox"]{
+    width: 20px;
+    height: 20px;
+    cursor: pointer;
+    
+    margin-top: 6px;
+    align-self: flex-start;
+
 }
 
 .tarea p{
     color: white;
-    font-size: 20px;
+    font-size: 17px;
 }
 
 .tarea button{
-    padding: 10px;
-
+    padding: 8px 14px;
     border: none;
-
-    border-radius: 8px;
-
+    border-radius: 6px;
     cursor: pointer;
-
-    margin-right: 10px;
 }
 
 .acciones{
     display: flex;
+    align-items: center;
+    margin-left: auto;
+    gap: 15px;
+}
+
+.acciones p{
+    font-size: 17px;
+    color:#d1d5db ;
 }
 
 .contenido{
     display: flex;
     flex-direction: column;
+    justify-content: center;
+    flex: 1;
+    gap: 5px;
+}
+
+.titulo{
+    color: white;
+    font-size: 20px;
+    font-weight: bold;
+    margin: 0;
+}
+
+.descripcion{
+    color: #9ca3af;
+    font-size: 15px;
+    margin-top: 6px;
+}
+
+.editar{
+    /* De momento no voy a poner nada aqui*/
+}
+
+.editar:hover{
+    background:#cfcfcf;
+}
+
+.eliminar{
+        /* De momento no voy a poner nada aqui*/
+}
+
+.eliminar:hover{
+        background:#cfcfcf;
+
 }

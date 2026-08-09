@@ -18,21 +18,26 @@ function agregarTareas(event){
 
     // Crear el parrafo
     const parrafo = document.createElement("p");
+    parrafo.classList.add("titulo")
     parrafo.textContent = inputTarea.value;
 
     // Crear descripcion
     const descripcion = document.createElement("p");
+    descripcion.classList.add("descripcion")
     if(inputDescripcion.value === ""){
         descripcion.textContent = "Sin Descripción";
     }else{
         descripcion.textContent = inputDescripcion.value;
     }
-    descripcion.style.color = "red";      /// ------------------------ COLORES AQUI !!!!!----------------
-    descripcion.style.fontSize = "20px";
 
+    inputDescripcion.addEventListener("input",()=>{
+        inputDescripcion.style.height = "auto";
+        inputDescripcion.style.height = inputDescripcion.scrollHeight + "px"
+    })
 
     // Boton Eliminar
     const botonEliminar = document.createElement("button");
+    botonEliminar.classList.add("eliminar");
     botonEliminar.textContent = "Eliminar";
 
     // Funcion eliminar
@@ -42,6 +47,7 @@ function agregarTareas(event){
 
     // Boton Editar
     const botonEditar = document.createElement("button");
+    botonEditar.classList.add("editar")
     botonEditar.textContent = "Editar";
 
     // Funcion Editar
@@ -71,10 +77,10 @@ function agregarTareas(event){
     const acciones = document.createElement("div");
     acciones.classList.add("acciones");
 
-    const fecha = document.createElement("p")
+    const fecha = document.createElement("p") // no hace nada 
     fecha.textContent = "Fecha: "
 
-    const prioridad = document.createElement("p")
+    const prioridad = document.createElement("p") // no hace nada 
     prioridad.textContent = "Prioridad: "
 
     // contenido
