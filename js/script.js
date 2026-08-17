@@ -1,10 +1,30 @@
-const inputTarea = document.querySelector(".input-tarea")
+const inputTarea = document.querySelector(".input-tarea");
 
-const inputDescripcion = document.querySelector(".input-descripcion")
+const inputDescripcion = document.querySelector(".input-descripcion");
 
-const buttonAgregar = document.querySelector(".button-agregar")
+const buttonFecha = document.querySelector(".button-fecha");
 
-const listaTareas = document.querySelector(".lista-tareas")
+const inputFecha = document.querySelector(".input-fecha");
+
+const inputPrioridad = document.querySelector(".input-prioridad");
+
+const buttonAgregar = document.querySelector(".button-agregar");
+
+const listaTareas = document.querySelector(".lista-tareas");
+
+// Cantidad Tareas
+
+const cantidadTotal = document.querySelector(".cantidad-total");
+
+const cantidadPendientes = document.querySelector(".cantidad-pendientes");
+
+const cantidadCompletadas = document.querySelector(".cantidad-completadas");
+
+const cantidadFavoritas = document.querySelector(".cantidad-favoritas");
+
+function actualizarContador(){
+    
+}
 
 function agregarTareas(event){
     event.preventDefault();
@@ -22,6 +42,8 @@ function agregarTareas(event){
     parrafo.textContent = inputTarea.value;
 
     // Crear descripcion
+    const descripcionTarea= inputDescripcion.value;
+
     const descripcion = document.createElement("p");
     descripcion.classList.add("descripcion")
     if(inputDescripcion.value === ""){
@@ -34,6 +56,20 @@ function agregarTareas(event){
         inputDescripcion.style.height = "auto";
         inputDescripcion.style.height = inputDescripcion.scrollHeight + "px"
     })
+
+    // boton fecha
+    const fecha = inputFecha.value;
+
+    const fechaTarea = document.createElement("p");
+    fechaTarea.textContent = "Fecha:" + fecha;
+
+    // Prioridad
+    const prioridad = inputPrioridad.value;
+
+    const prioridadTarea = document.createElement("p");
+    prioridadTarea.textContent = prioridad;
+
+
 
     // Boton Eliminar
     const botonEliminar = document.createElement("button");
@@ -52,8 +88,30 @@ function agregarTareas(event){
 
     // Funcion Editar
     botonEditar.addEventListener("click", ()=>{
-        inputTarea.value = parrafo.textContent;
+        inputTarea.value = parrafo.textContent; // modifica el titulo
+        inputDescripcion.value = descripcionTarea; // modifica la descripcion
+        inputFecha.value = fecha; // modifica la fecha
+        inputPrioridad.value = prioridad; // modifica la prioridad
+        
         nuevaTarea.remove();
+    })
+
+    // Crear favorito
+    const botonFavorito = document.createElement("button");
+    botonFavorito.classList.add("favorito")
+    botonFavorito.textContent = "☆"
+
+    // Funcion Marcar como favorito
+    botonFavorito.addEventListener("click",()=>{
+
+        if(botonFavorito.textContent === "☆"){ 
+            botonFavorito.textContent = "★";     // Favorito marcado
+            botonFavorito.classList.add("activo") // Para css
+
+        }else{
+            botonFavorito.textContent = "☆"       // Favorito No marcado
+            botonFavorito.classList.remove("activo") // Para css
+        }
     })
 
     // Crear checkbox
@@ -77,24 +135,19 @@ function agregarTareas(event){
     const acciones = document.createElement("div");
     acciones.classList.add("acciones");
 
-    const fecha = document.createElement("p") // no hace nada 
-    fecha.textContent = "Fecha: "
-
-    const prioridad = document.createElement("p") // no hace nada 
-    prioridad.textContent = "Prioridad: "
-
     // contenido
     contenido.appendChild(parrafo);
     contenido.appendChild(descripcion);
 
     // articulo
     nuevaTarea.appendChild(checkbox);
+    nuevaTarea.appendChild(botonFavorito);
     nuevaTarea.appendChild(contenido);
     nuevaTarea.appendChild(acciones);
 
     // acciones
-    acciones.appendChild(fecha);
-    acciones.appendChild(prioridad);
+    acciones.appendChild(fechaTarea);
+    acciones.appendChild(prioridadTarea);
     acciones.appendChild(botonEditar);
     acciones.appendChild(botonEliminar);
 
@@ -105,17 +158,51 @@ function agregarTareas(event){
     inputTarea.value = "";
     inputDescripcion.value = "";
 
+}// fin de function agregarTareas
 
-}
 
+ // Boton Agregar tarea
 buttonAgregar.addEventListener("click", agregarTareas);
 
-// creacion del nuevo contenedor para acciones (rediseño de article)
-// debe tener:
-// 1. fecha
-// 2. prioridad: baja, medio, alta
-// 3. boton editar
-// 4. boton eliminar
-// 5. descripcion
 
-console.log(inputDescripcion.value);
+// Funcion agregar fecha
+buttonFecha.addEventListener("click",()=>{
+    inputFecha.showPicker();
+})
+
+// Funcion agregar prioridad
+    // Boton prioridad
+
+
+// v1.6
+// articulo:
+// fecha ✅
+// prioridad ✅
+// que guarde la Descripcion ✅
+// que guarde la fecha ✅
+// que guarde la prioridad ✅
+// nuevaTarea
+// favoritas (almenos marcarlas) ✅
+
+// v1.6.1
+// mejorar editar
+// Editar debe actualizar la tarea existente
+
+// sidebar: v1.7
+// Todas las tareas (contador)
+// total
+// pendientes
+// completas
+// favortias
+// Eliminar
+
+// Eliminar: v1.8
+// Borrar tareas seleccionadas
+// Borrar tareas completadas
+// aviso: seguro de que quieres borrar estas tareas
+
+//v.19
+// Rediseño con Css
+
+// v2.0
+// localStorage

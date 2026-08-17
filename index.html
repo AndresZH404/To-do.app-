@@ -7,29 +7,88 @@
     <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
-<header>
-    <h1>Todas las tareas</h1>
-</header>
-<main>
-    <form action="" class="formulario">
 
-        <input type="text" 
-        placeholder="Nueva tarea..." 
-        class="input-tarea"> 
+<div class="app"> <!-- / TO-DO APP (EN PROGRESO) /-->
 
-        <textarea class="input-descripcion"
-        placeholder="Descripcion (opcional)..."></textarea>
+    <header>
+    </header>
 
-        <button class="button-agregar"> <!---Esto ya funciona-->
-            agregar
-        </button> 
+<!--/ SIDEBAR TODAS LAS TAREAS /-->
+    <aside class="sidebar">
+        <nav class="menu">
+            <h2>Todas las tareas</h2> <!-- Titulo del sidebar-->
+            <ul class="menu-lista"> <!-- / No funcional /-->
 
-    </form>
+                <li class="menu-item"> <!--Total tareas-->
+                    <span>Total</span>
+                    <span class="cantidad-total">0</span>
+                </li>  
 
-    <section class="lista-tareas">
+                <li class="menu-item"> <!--Tareas pendientes-->
+                    <span>Pendientes</span>
+                    <span class="cantidad-pendientes">0</span>
+                </li> 
 
-    </section>
+                <li class="menu-item"><!--Tareas completadas-->
+                    <span>Completadas</span>
+                    <span class="cantidad-completadas">0</span>
+                </li> 
+
+                <li class="menu-item"> <!--Tareas favoritas-->
+                    <span>Favoritas</span>
+                    <span class="cantidad-favoritas">0</span>
+                </li>
+            </ul>
+        </nav>
+
+        <!--/ BOTON ELIMINAR /-->
+        <section class="acciones-tareas"> <!--Boton para eliminar tareas especificas-->
+            <button class="eliminar-tareas"> <!-- / No funcional /-->
+                Eliminar tareas
+            </button>
+        </section>
+    </aside>
+
+
+<!--/ FORMULARIO /-->    
+    <main class="contenido">
+        <form action="" class="formulario">
+
+            <input type="text" 
+            placeholder="Nueva tarea..." 
+            class="input-tarea"> 
+
+            <textarea class="input-descripcion"
+            placeholder="Descripcion (opcional)..."></textarea>
+
+            <!--/ BOTON AGREGAR /-->
+            <button class="button-agregar"> <!--/ Funcional /-->
+                Agregar tarea
+            </button> 
+
+            <!--/BOTON AGREGAR FEHCA-->
+            <button type="button" class="button-fecha">
+                Agregar fecha
+            </button>
+
+            <!--/selector de fecha-->
+            <input type="date" class="input-fecha">
+
+            <select class="input-prioridad">
+                <option value="">Prioridad</option>
+                <option value="baja">Baja</option>
+                <option value="media">Media</option>
+                <option value="alta">Alta</option>
+            </select>
+
+        </form>
+
+        <section class="lista-tareas"></section> <!-- / Funcional /-->
+
+    </main>
+</div>
+
     <script src="js/script.js"></script>
-</main>
+
 </body>
 </html>
