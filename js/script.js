@@ -22,15 +22,39 @@ const cantidadCompletadas = document.querySelector(".cantidad-completadas");
 
 const cantidadFavoritas = document.querySelector(".cantidad-favoritas");
 
-function actualizarContador(){
-    
-}
+
+// Editar (--- TRABAJO EN PROCESO ---)
+let tareaEditando = null;
 
 function agregarTareas(event){
     event.preventDefault();
 
     // Se valida que el espacio no este vacio
     if(inputTarea.value === "") return;
+
+    // Se edita solo la tarea actual
+    if(tareaEditando !== null){
+        
+        const titulo = tareaEditando.querySelector(".titulo");
+        const descripcion = tareaEditando.querySelector(".descripcion");
+        const fecha = tareaEditando.querySelector(".fecha");
+        const prioridad = tareaEditando.querySelector(".prioridad");
+
+        titulo.textContent = inputTarea.value;
+
+        if(inputDescripcion.value === ""){
+            descripcion.textContent = "Sin Descripcion";
+        }else{
+            descripcion.textContent = inputDescripcion.value;
+        }
+
+        fecha.textContent = "fecha: " + inputFecha.value;
+        prioridad.textContent = inputPrioridad.value;
+
+        tareaEditando = null;
+
+        return
+    }
 
     // nuevo elemento
     const nuevaTarea = document.createElement("article");
@@ -61,15 +85,15 @@ function agregarTareas(event){
     const fecha = inputFecha.value;
 
     const fechaTarea = document.createElement("p");
-    fechaTarea.textContent = "Fecha:" + fecha;
+    fechaTarea.classList.add("fecha");
+    fechaTarea.textContent = "Fecha: " + fecha;
 
     // Prioridad
     const prioridad = inputPrioridad.value;
 
     const prioridadTarea = document.createElement("p");
+    prioridadTarea.classList.add("prioridad")
     prioridadTarea.textContent = prioridad;
-
-
 
     // Boton Eliminar
     const botonEliminar = document.createElement("button");
@@ -89,11 +113,11 @@ function agregarTareas(event){
     // Funcion Editar
     botonEditar.addEventListener("click", ()=>{
         inputTarea.value = parrafo.textContent; // modifica el titulo
-        inputDescripcion.value = descripcionTarea; // modifica la descripcion
+        inputDescripcion.value = descripcion.textContent; // modifica la descripcion
         inputFecha.value = fecha; // modifica la fecha
         inputPrioridad.value = prioridad; // modifica la prioridad
         
-        nuevaTarea.remove();
+        tareaEditando = nuevaTarea;
     })
 
     // Crear favorito
@@ -185,8 +209,14 @@ buttonFecha.addEventListener("click",()=>{
 // favoritas (almenos marcarlas) ✅
 
 // v1.6.1
-// mejorar editar
-// Editar debe actualizar la tarea existente
+// mejorar editar ✅
+// Editar debe actualizar la tarea existente  ✅
+
+// v1.6.2
+// Después de editar, limpiar el formulario de Agregar tarea
+
+// v1.6.3
+// solucionar que el titulo y la descripcion no se salgan
 
 // sidebar: v1.7
 // Todas las tareas (contador)
@@ -201,7 +231,7 @@ buttonFecha.addEventListener("click",()=>{
 // Borrar tareas completadas
 // aviso: seguro de que quieres borrar estas tareas
 
-//v.19
+//v1.9
 // Rediseño con Css
 
 // v2.0
