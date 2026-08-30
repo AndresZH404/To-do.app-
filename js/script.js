@@ -49,14 +49,14 @@ function agregarTareas(event){
         }
 
         fecha.textContent = "fecha: " + inputFecha.value;
+
         prioridad.textContent = inputPrioridad.value;
 
         tareaEditando = null;
 
-        return
-    }
+    } else{
 
-    // nuevo elemento
+     // nuevo elemento
     const nuevaTarea = document.createElement("article");
     nuevaTarea.classList.add("tarea")
 
@@ -178,9 +178,13 @@ function agregarTareas(event){
     // lista
     listaTareas.appendChild(nuevaTarea);
 
+}
+
     // limpia el formulario para la siguiente tarea (no tocar)
     inputTarea.value = "";
     inputDescripcion.value = "";
+    inputFecha.value = "";
+    inputPrioridad.value = "";
 
 }// fin de function agregarTareas
 
@@ -213,7 +217,7 @@ buttonFecha.addEventListener("click",()=>{
 // Editar debe actualizar la tarea existente  ✅
 
 // v1.6.2
-// Después de editar, limpiar el formulario de Agregar tarea
+// Después de editar, limpiar el formulario de Agregar tarea ✅
 
 // v1.6.3
 // solucionar que el titulo y la descripcion no se salgan
