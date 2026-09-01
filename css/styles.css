@@ -126,6 +126,7 @@ header{
 .tarea p{
     color: white;
     font-size: 17px;
+    overflow-wrap: anywhere;
 }
 
 .tarea button{
@@ -152,6 +153,7 @@ header{
     flex-direction: column;
     justify-content: center;
     flex: 1;
+    min-width: 0;
     gap: 5px;
 }
 

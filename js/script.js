@@ -220,7 +220,7 @@ buttonFecha.addEventListener("click",()=>{
 // Después de editar, limpiar el formulario de Agregar tarea ✅
 
 // v1.6.3
-// solucionar que el titulo y la descripcion no se salgan
+// solucionar que el titulo y la descripcion no se salgan ✅
 
 // sidebar: v1.7
 // Todas las tareas (contador)
