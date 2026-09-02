@@ -13,8 +13,9 @@ const buttonAgregar = document.querySelector(".button-agregar");
 const listaTareas = document.querySelector(".lista-tareas");
 
 // Cantidad Tareas
+// Sidebar
 
-const cantidadTotal = document.querySelector(".cantidad-total");
+const cantidadTotal = document.querySelector("#cantidad-total");
 
 const cantidadPendientes = document.querySelector(".cantidad-pendientes");
 
@@ -25,6 +26,15 @@ const cantidadFavoritas = document.querySelector(".cantidad-favoritas");
 
 // Editar (--- TRABAJO EN PROCESO ---)
 let tareaEditando = null;
+
+
+// Sidebar (contadores) 
+function actualizarContador(){
+    const total = listaTareas.children.length;
+
+    cantidadTotal.textContent = total;
+
+}
 
 function agregarTareas(event){
     event.preventDefault();
@@ -177,6 +187,7 @@ function agregarTareas(event){
 
     // lista
     listaTareas.appendChild(nuevaTarea);
+    actualizarContador();
 
 }
 
