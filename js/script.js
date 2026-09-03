@@ -29,11 +29,24 @@ let tareaEditando = null;
 
 
 // Sidebar (contadores) 
+// Total tareas
 function actualizarContador(){
     const total = listaTareas.children.length;
 
     cantidadTotal.textContent = total;
 
+// Pendientes
+    let pendientes = 0
+
+    for(let i = 0; i  < listaTareas.children.length; i++){
+        const tarea = listaTareas.children[i];
+        const checkbox = tarea.querySelector(".checkbox");
+
+        if(!checkbox.checked){
+            pendientes++;
+        }
+    }
+    cantidadPendientes.textContent = pendientes
 }
 
 function agregarTareas(event){
@@ -113,6 +126,7 @@ function agregarTareas(event){
     // Funcion eliminar
     botonEliminar.addEventListener("click",() => {
         nuevaTarea.remove();
+        actualizarContador();
     });
 
     // Boton Editar
@@ -151,6 +165,7 @@ function agregarTareas(event){
     // Crear checkbox
     const checkbox = document.createElement("input");
     checkbox.type = "checkbox";
+    checkbox.classList.add("checkbox")
 
     // Funcion marcar
     checkbox.addEventListener("click",()=>{
@@ -159,6 +174,7 @@ function agregarTareas(event){
     } else{ 
         parrafo.style.textDecoration = "none" // si no esta marcado hace esto
     }
+    actualizarContador()
     })
 
     // contenido (div para parrafo y decripcion)
@@ -234,8 +250,8 @@ buttonFecha.addEventListener("click",()=>{
 // solucionar que el titulo y la descripcion no se salgan ✅
 
 // sidebar: v1.7
-// Todas las tareas (contador)
-// total
+// Todas las tareas (contador) 
+// total ✅
 // pendientes
 // completas
 // favortias
