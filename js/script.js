@@ -29,12 +29,13 @@ let tareaEditando = null;
 
 
 // Sidebar (contadores) 
-// Total tareas
+// Total
 function actualizarContador(){
     const total = listaTareas.children.length;
 
     cantidadTotal.textContent = total;
 
+    
 // Pendientes
     let pendientes = 0
 
@@ -47,6 +48,20 @@ function actualizarContador(){
         }
     }
     cantidadPendientes.textContent = pendientes
+
+
+    // Completadas
+    let completadas = 0
+
+    for(let i= 0; i <listaTareas.children.length; i++){
+        const tarea = listaTareas.children[i];
+        const checkbox = tarea.querySelector(".checkbox");
+
+        if(checkbox.checked){
+            completadas++;
+        }
+    }
+    cantidadCompletadas.textContent = completadas
 }
 
 function agregarTareas(event){
@@ -252,8 +267,8 @@ buttonFecha.addEventListener("click",()=>{
 // sidebar: v1.7
 // Todas las tareas (contador) 
 // total ✅
-// pendientes
-// completas
+// pendientes ✅
+// completas ✅
 // favortias
 // Eliminar
 
