@@ -47,7 +47,7 @@ function actualizarContador(){
             pendientes++;
         }
     }
-    cantidadPendientes.textContent = pendientes
+    cantidadPendientes.textContent = pendientes;
 
 
     // Completadas
@@ -61,7 +61,22 @@ function actualizarContador(){
             completadas++;
         }
     }
-    cantidadCompletadas.textContent = completadas
+    cantidadCompletadas.textContent = completadas;
+
+
+    // Favoritas
+
+    let favoritas = 0
+
+    for(let i=0; i<listaTareas.children.length; i++){
+        const tarea = listaTareas.children[i];
+        const botonFavorito = tarea.querySelector(".favorito"); //
+
+        if(botonFavorito.classList.contains("activo")){
+            favoritas++ // que poner ?
+        }
+    }
+    cantidadFavoritas.textContent = favoritas;
 }
 
 function agregarTareas(event){
@@ -175,6 +190,8 @@ function agregarTareas(event){
             botonFavorito.textContent = "☆"       // Favorito No marcado
             botonFavorito.classList.remove("activo") // Para css
         }
+        actualizarContador();
+
     })
 
     // Crear checkbox
@@ -270,7 +287,7 @@ buttonFecha.addEventListener("click",()=>{
 // pendientes ✅
 // completas ✅
 // favortias
-// Eliminar
+// Eliminar (Almenos el boton)
 
 // Eliminar: v1.8
 // Borrar tareas seleccionadas
@@ -279,6 +296,18 @@ buttonFecha.addEventListener("click",()=>{
 
 //v1.9
 // Rediseño con Css
+// Mejorar el diseño general de sidebar
+// Mejorar el diseño de la ficha de tareas
+    // Mejorar el boton: Agregar fecha
+    // Mejorar el boton: Prioridad
+    // Darle mas espacio a descipción
+// Mejorar el diseño de los articulos
+    // Casilla checkbox (lado izquierdo)
+    // Casilla favorito (lado izquierdo)
+    // Icono de fecha
+    // Color de letas de prioridad (Baja - Verde) (Medeia - Naranja) (Alta - Rojo)
+    // Icono de editar
+    // Icono de borrar
 
 // v2.0
 // localStorage
