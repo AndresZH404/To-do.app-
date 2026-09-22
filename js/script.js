@@ -23,6 +23,8 @@ const cantidadCompletadas = document.querySelector(".cantidad-completadas");
 
 const cantidadFavoritas = document.querySelector(".cantidad-favoritas");
 
+const botonEliminarCompletadas = document.querySelector(".eliminar-completadas");
+
 
 // Editar (--- TRABAJO EN PROCESO ---)
 let tareaEditando = null;
@@ -62,6 +64,12 @@ function actualizarContador(){
         }
     }
     cantidadCompletadas.textContent = completadas;
+
+    if(completadas > 0){
+    botonEliminarCompletadas.disabled = false;
+    }else{
+    botonEliminarCompletadas.disabled = true;
+    }
 
 
     // Favoritas
@@ -257,9 +265,17 @@ buttonFecha.addEventListener("click",()=>{
     inputFecha.showPicker();
 })
 
-// Funcion agregar prioridad
-    // Boton prioridad
-
+// Funcion Eliminar Completadas
+    botonEliminarCompletadas.addEventListener("click",()=>{
+    for(let i = listaTareas.children.length -1; i >= 0; i--){
+        const tarea = listaTareas.children[i];
+        const checkbox = tarea.querySelector(".checkbox");
+        if(checkbox.checked){
+            tarea.remove();
+        }
+    }
+    actualizarContador();
+});
 
 // v1.6
 // articulo:
@@ -286,13 +302,12 @@ buttonFecha.addEventListener("click",()=>{
 // total ✅
 // pendientes ✅
 // completas ✅
-// favortias
-// Eliminar (Almenos el boton)
+// favortias ✅
+// Eliminar (Almenos el boton) 
 
-// Eliminar: v1.8
-// Borrar tareas seleccionadas
-// Borrar tareas completadas
-// aviso: seguro de que quieres borrar estas tareas
+// Eliminar: v1.8 ✅
+// Borrar: tareas seleccionadas
+// Borrar: tareas completadas
 
 //v1.9
 // Rediseño con Css
